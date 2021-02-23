@@ -1,10 +1,18 @@
 .App {
-  text-align: center;
+  min-height: 100vh;
+  height: 300px;
+  background-image: url(https://images4.alphacoders.com/833/833515.jpg);
+  background-size: 3000px;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+img {
+  position: absolute;
+  left: 0px;
+  top: 25px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,25 +22,158 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.form-container {
+  text-align: center;
+  position: relative;
+  top: 350px;
+  background: #e2dcd0;
+  height: 500px;
+  width: 1200px;
+  border-radius: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.carousel-indicators {
+  top: 550px;
+}
+
+.carousel-control-next {
+  top: 580px !important;
+}
+
+.carousel-control-prev {
+  top: 580px !important;
+}
+
+.plano-diretor-title {
+  font-weight: lighter;
+  font-size: larger !important;
+}
+.form-label {
+  font-size: x-large !important;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  outline: none !important;
+  appearance: none;
+  border: none;
+  border-radius: 30px;
+}
+input[type="range"]::-moz-focus-outer {
+  border: 0;
+}
+input[type="range"]:hover {
+  outline: none;
+}
+
+/* Chrome */
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 9px;
+  height: 9px;
+  background: #4caf50;
+  cursor: pointer;
+  border-radius: 30px;
+  outline: none;
+}
+
+/* Moz */
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #f1f9f4;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+}
+input[type="range"]::-moz-range-progress {
+  background-color: #fff;
+  height: 100%;
+  border-radius: 30px;
+  border: none;
+}
+input[type="range"]::-moz-range-track {
+  background-color: #ccc;
+  border-radius: 30px;
+  border: none;
+  height: 100%;
+}
+
+/* IE*/
+
+input[type="range"]::-ms-fill-lower {
+  background-color: #fff;
+  height: 100%;
+  border-radius: 30px;
+  border: none;
+}
+input[type="range"]::-ms-fill-upper {
+  background-color: #ccc;
+  border-radius: 30px;
+  border: none;
+  height: 100%;
+}
+
+/* tooltip style */
+.tooltip {
+  position: relative;
+  padding: 30px 0;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: #f38080;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: calc(50% - 50px);
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #f38080 transparent transparent transparent;
+}
+
+.form-check-label {
+  font-size: x-large !important;
+  position: relative !important;
+  bottom: 15px !important;
+  margin-bottom: -5px !important;
+}
+.form-check-input {
+  position: relative !important;
+  margin-top: 0 !important;
+  margin-right: 0.3125rem;
+  margin-left: 0;
+  top: 60px !important;
+  margin-bottom: 10px;
 }
