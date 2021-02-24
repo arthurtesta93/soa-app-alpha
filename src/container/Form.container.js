@@ -15,7 +15,7 @@ function FormContainer() {
     const updatedJobObject = jobObject;
 
     updatedJobObject[field] = value;
-
+    console.log(updatedJobObject);
     setJobObject(updatedJobObject);
   };
 

@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Container } from "react-bootstrap";
@@ -7,13 +6,14 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Alert from "react-bootstrap/Alert";
+import { Tooltip } from "antd";
 import _ from "lodash";
 
-function EmpreendimentoComponent() {
+function EmpreendimentoComponent(props) {
   const [show, setShow] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [metragemHabitacao, setMetragemHabitacao] = useState(0);
-  const [porcentagemHabitacao, setPorcentagemHabitacao] = useState(0);
+  const [metragemHabitacao, setMetragemHabitacao] = useState(null);
+  const [porcentagemHabitacao, setPorcentagemHabitacao] = useState(null);
   const [habitacoes, setHabitacoes] = useState([]);
 
   const handleModalShow = () => {
@@ -36,6 +36,7 @@ function EmpreendimentoComponent() {
       setShowAlert(true);
     } else {
       updatedHabitacoes.push(newHabitacao);
+      props.handleJobObjectChange("habitacoes", updatedHabitacoes);
       setHabitacoes(updatedHabitacoes);
       setMetragemHabitacao(null);
       setPorcentagemHabitacao(null);
@@ -45,7 +46,8 @@ function EmpreendimentoComponent() {
 
   const handleRemoveHabitacao = (habitacao) => {
     const updatedHabitacoes = [...habitacoes];
-    updatedHabitacoes.splice(habitacao);
+    updatedHabitacoes.splice(habitacao, 1);
+    props.handleJobObjectChange("habitacoes", updatedHabitacoes);
     setHabitacoes(updatedHabitacoes);
   };
 
@@ -55,24 +57,44 @@ function EmpreendimentoComponent() {
       <Row className="mb-3">
         <Col>
           <Form.Label>Tamanho da unidade</Form.Label>
-          <Form.Control placeholder="Tamanho da unidade (m²)" />
+          <Form.Control
+            placeholder="Tamanho da unidade (m²)"
+            onChange={(e) =>
+              props.handleJobObjectChange("tamanhoUnidade", e.target.value)
+            }
+          />
         </Col>
         <Col>
           <Form.Label>Circulação mínima </Form.Label>
-          <Form.Control placeholder="Ao redor da circulação vertical (m)" />
+          <Form.Control
+            placeholder="Ao redor da circulação vertical (m)"
+            onChange={(e) =>
+              props.handleJobObjectChange("circulacaoMinima", e.target.value)
+            }
+          />
         </Col>
         <Col>
           <Form.Label>Preço por m²</Form.Label>
-          <Form.Control placeholder="Preço por m² (R$)" />
+          <Form.Control
+            placeholder="Preço por m² (R$)"
+            onChange={(e) =>
+              props.handleJobObjectChange("precoMetroQuadrado", e.target.value)
+            }
+          />
         </Col>
         <Col>
           <Form.Label>Adição de porcentagem</Form.Label>
-          <Form.Control placeholder="Adição de porcentagem por andar" />
+          <Form.Control
+            placeholder="Adição de porcentagem por andar"
+            onChange={(e) =>
+              props.handleJobObjectChange("adicaoPorcentagem", e.target.value)
+            }
+          />
         </Col>
       </Row>
       <p className="plano-diretor-title">Habitações</p>
       <Row className="mt-3">
-        <Col>
+        <Col style={{ marginTop: "-55px" }}>
           <Button variant="primary" onClick={handleModalShow}>
             Adicionar habitação
           </Button>
@@ -86,10 +108,12 @@ function EmpreendimentoComponent() {
                 className="habitacoes-list-content"
                 onClick={() => handleRemoveHabitacao(key)}
               >
-                <p className="habitacao-label">
-                  Habitação {key + 1} : {habitacao.metragem} m² /{" "}
-                  {habitacao.porcentagem}%
-                </p>
+                <Tooltip title="Clique para remover. Atenção: remover a primeira habitação remove todas as demais">
+                  <p className="habitacao-label">
+                    Habitação {key + 1} : {habitacao.metragem} m² /{" "}
+                    {habitacao.porcentagem}%
+                  </p>
+                </Tooltip>
               </span>
             ))}
           </div>

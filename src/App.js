@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "antd/dist/antd.css";
 import FormContainer from "./container/Form.container";
 function App() {
   return (

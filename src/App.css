@@ -167,14 +167,16 @@ input[type="range"]::-ms-fill-upper {
   font-size: x-large !important;
   position: relative !important;
   bottom: 15px !important;
-  margin-bottom: -5px !important;
+  margin-bottom: 13px !important;
 }
+
 .form-check-input {
   position: relative !important;
   margin-top: 0 !important;
   margin-right: 0.3125rem;
   margin-left: 0;
-  top: 60px !important;
+  top: 20px !important;
+  left: 95px !important;
   margin-bottom: 10px;
 }
 
@@ -182,7 +184,7 @@ input[type="range"]::-ms-fill-upper {
   padding-left: 100px;
   margin-left: -15px;
   width: 1200px;
-  height: 175px;
+  height: 165px;
   border-radius: 40px;
   background-color: transparent;
   -ms-box-orient: horizontal;
