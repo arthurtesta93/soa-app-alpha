@@ -177,3 +177,44 @@ input[type="range"]::-ms-fill-upper {
   top: 60px !important;
   margin-bottom: 10px;
 }
+
+.habitacoes-list-flex-wrap {
+  padding-left: 100px;
+  margin-left: -15px;
+  width: 1200px;
+  height: 175px;
+  border-radius: 40px;
+  background-color: transparent;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow: auto;
+}
+
+.habitacoes-list-content {
+  padding: 10px 5px 5px 5px;
+  width: auto;
+  height: 50px;
+  margin: 10px 10px 0px 10px;
+  background: #ffffff;
+  font-weight: bold;
+  font-weight: 500;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.habitacao-label {
+  font-size: x-large;
+}
+
+.habitacao-label:hover {
+  color: red;
+}

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Carousel from "react-bootstrap/Carousel";
 
 import PlanoDiretorComponent from "../components/PlanoDiretor.component";
@@ -7,16 +9,28 @@ function FormContainer() {
   //create form object and onChange methods here
   //dispatch from here
 
+  const [jobObject, setJobObject] = useState({});
+
+  const handleJobObjectChange = (field, value) => {
+    const updatedJobObject = jobObject;
+
+    updatedJobObject[field] = value;
+
+    setJobObject(updatedJobObject);
+  };
+
   return (
     <Carousel pause={"hover"} interval={200000}>
       <Carousel.Item>
-        <PlanoDiretorComponent />
+        <PlanoDiretorComponent handleJobObjectChange={handleJobObjectChange} />
       </Carousel.Item>
       <Carousel.Item>
-        <VolumetriaComponent />
+        <VolumetriaComponent handleJobObjectChange={handleJobObjectChange} />
       </Carousel.Item>
       <Carousel.Item>
-        <EmpreendimentoComponent />
+        <EmpreendimentoComponent
+          handleJobObjectChange={handleJobObjectChange}
+        />
       </Carousel.Item>
     </Carousel>
   );
