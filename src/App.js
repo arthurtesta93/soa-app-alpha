@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "antd/dist/antd.css";
+import logo from "./assets/LOGO_SOA3.png";
 import { Spin } from "antd";
 
 import FormContainer from "./container/Form.container";
@@ -15,7 +16,7 @@ function App() {
     >
       <div className="App">
         <header className="App-header">
-          <img src="LOGO SOA3.png" alt="logo" width="600" height="150" />
+          <img src={logo} alt="logo" width="600" height="150" />
           <div className="form-container">
             <FormContainer
               sendingRequest={sendingRequest}
