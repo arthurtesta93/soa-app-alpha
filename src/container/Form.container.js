@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Result } from "antd";
+import { Result, message } from "antd";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 
 import PlanoDiretorComponent from "../components/PlanoDiretor.component";
 import EmpreendimentoComponent from "../components/Empreendimento.component";
 import VolumetriaComponent from "../components/Volumetria.component";
+
+import * as formValidators from "../shared/formValidators";
 
 const axios = require("axios").default;
 
@@ -37,13 +39,20 @@ function FormContainer(props) {
 
   const requestJobProcess = () => {
     props.setSendingRequest(true);
-    instance
-      .post(
-        "http://localhost:8080/job-queue/unprocessed",
-        JSON.stringify(jobObject)
-      )
-      .then((response) => onRequestFinished(response))
-      .catch((error) => onRequestError(error));
+    if (formValidators.formFieldsMissing(jobObject)) {
+      message.error(
+        "Prencha todos os campos do formulário para que o SOA possa processar o estudo de otimização."
+      );
+      props.setSendingRequest(false);
+    } else {
+      instance
+        .post(
+          "http://localhost:8080/job-queue/unprocessed",
+          JSON.stringify(jobObject)
+        )
+        .then((response) => onRequestFinished(response))
+        .catch((error) => onRequestError(error));
+    }
   };
 
   const onRequestFinished = (response) => {

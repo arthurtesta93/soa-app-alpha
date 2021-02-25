@@ -117,8 +117,7 @@ function PlanoDiretorComponent(props) {
         </Col>
       </Row>
       <Row className="mt-3">
-        <Col xs={3}></Col>
-
+        <Col xs={3} />
         <Col>
           <Form.Group>
             <Form.Label style={{ marginBottom: "25px" }}>
@@ -132,6 +131,7 @@ function PlanoDiretorComponent(props) {
             {ocupacaoValue + "%"}
           </Form.Group>
         </Col>
+        <Col xs={3} />
       </Row>
     </Container>
   );
