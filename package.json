@@ -1,7 +1,7 @@
 {
   "name": "soa-application-frontend",
   "version": "0.1.0",
-  "homepage": "https://arthurtesta93.github.io/soa-app-alpha/tree/gh-pages",
+  "homepage": "https://soa.app.br",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
