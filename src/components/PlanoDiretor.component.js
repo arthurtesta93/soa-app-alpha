@@ -19,7 +19,10 @@ function PlanoDiretorComponent(props) {
         <Col>
           <Form.Label>Largura</Form.Label>
           <Form.Control
-            placeholder="Largura (metros)"
+            placeholder="Máximo: 100 (metros)"
+            type="number"
+            min="0"
+            max="100"
             onChange={(e) =>
               props.handleJobObjectChange("largura", e.target.value)
             }
@@ -28,7 +31,10 @@ function PlanoDiretorComponent(props) {
         <Col>
           <Form.Label>Profundidade</Form.Label>
           <Form.Control
-            placeholder="Profundidade (metros)"
+            type="number"
+            min="0"
+            max="100"
+            placeholder="Máximo: 100 (metros)"
             onChange={(e) =>
               props.handleJobObjectChange("profundidade", e.target.value)
             }
@@ -37,19 +43,24 @@ function PlanoDiretorComponent(props) {
         <Col>
           <Form.Label>Aproveitamento</Form.Label>
           <Form.Control
-            placeholder="Índice de aproveitamento"
+            type="number"
+            min="0"
+            max="9"
+            placeholder="Máximo: 9"
             onChange={(e) =>
               props.handleJobObjectChange("indiceAp", e.target.value)
             }
           />
         </Col>
         <Col>
-          <Form.Label>Aproveitamento máximo</Form.Label>
-          {/* IS THIS STILL IN USE? */}
+          <Form.Label>Recuo frontal</Form.Label>
           <Form.Control
-            placeholder="Índice de aproveitamento máximo"
+            placeholder="Máximo: 15 (metros)"
+            type="number"
+            min="1"
+            max="15"
             onChange={(e) =>
-              props.handleJobObjectChange("apMaximo", e.target.value)
+              props.handleJobObjectChange("recuoFrontal", e.target.value)
             }
           />
         </Col>
@@ -58,7 +69,10 @@ function PlanoDiretorComponent(props) {
         <Col>
           <Form.Label>Solo criado</Form.Label>
           <Form.Control
-            placeholder="Solo criado(m²)"
+            type="number"
+            min="0"
+            max="9999"
+            placeholder="Máximo: 9999 (m²)"
             onChange={(e) =>
               props.handleJobObjectChange("soloCriado", e.target.value)
             }
@@ -67,7 +81,10 @@ function PlanoDiretorComponent(props) {
         <Col>
           <Form.Label>Altura máxima</Form.Label>
           <Form.Control
-            placeholder="Altura máxima (metros)"
+            placeholder="Máximo: 100 (metros)"
+            type="number"
+            min="0"
+            max="100"
             onChange={(e) =>
               props.handleJobObjectChange("alturaMax", e.target.value)
             }
@@ -77,7 +94,10 @@ function PlanoDiretorComponent(props) {
         <Col>
           <Form.Label>Altura máxima divisa</Form.Label>
           <Form.Control
-            placeholder="Altura máxima divisa (metros)"
+            placeholder="Máximo: 20 (metros)"
+            type="number"
+            min="0"
+            max="20"
             onChange={(e) =>
               props.handleJobObjectChange("altMaxDiv", e.target.value)
             }
@@ -86,7 +106,10 @@ function PlanoDiretorComponent(props) {
         <Col>
           <Form.Label>Altura máxima base</Form.Label>
           <Form.Control
-            placeholder="Altura máxima base (metros)"
+            placeholder="Máximo: 20 (metros)"
+            type="number"
+            min="0"
+            max="20"
             onChange={(e) =>
               props.handleJobObjectChange("altMaxBase", e.target.value)
             }
@@ -94,15 +117,7 @@ function PlanoDiretorComponent(props) {
         </Col>
       </Row>
       <Row className="mt-3">
-        <Col xs={3}>
-          <Form.Label>Recuo frontal</Form.Label>
-          <Form.Control
-            placeholder="Recuo frontal (metros)"
-            onChange={(e) =>
-              props.handleJobObjectChange("recuoFrontal", e.target.value)
-            }
-          />
-        </Col>
+        <Col xs={3}></Col>
 
         <Col>
           <Form.Group>

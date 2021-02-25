@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Spin, Result } from "antd";
+import { Result } from "antd";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 
@@ -18,12 +18,11 @@ const instance = axios.create({
     "Acess-Control-Allow-Origin": true,
   },
 });
-function FormContainer() {
+function FormContainer(props) {
   //create form object and onChange methods here
   //dispatch from here
 
   const [jobObject, setJobObject] = useState({});
-  const [sendingRequest, setSendingRequest] = useState(false);
   const [response, setResponse] = useState({});
   const [successAlertShow, setSuccessAlertShow] = useState(false);
   const [errorAlertShow, setErrorAlertShow] = useState(false);
@@ -37,7 +36,7 @@ function FormContainer() {
   };
 
   const requestJobProcess = () => {
-    setSendingRequest(true);
+    props.setSendingRequest(true);
     instance
       .post(
         "http://localhost:8080/job-queue/unprocessed",
@@ -50,18 +49,18 @@ function FormContainer() {
   const onRequestFinished = (response) => {
     setResponse(response.data);
     setTimeout(function () {
-      setSendingRequest(false);
+      props.setSendingRequest(false);
       setSuccessAlertShow(true);
     }, 3000);
 
     setTimeout(function () {
       setSuccessAlertShow(false);
-    }, 20000);
+    }, 10000);
   };
 
   const onRequestError = () => {
     setTimeout(function () {
-      setSendingRequest(false);
+      props.setSendingRequest(false);
       setErrorAlertShow(true);
     }, 3000);
 
@@ -74,8 +73,10 @@ function FormContainer() {
       {successAlertShow ? (
         <Result
           status="success"
-          title="Anote o protocolo! Seu estudo de otimização está a caminho :)"
-          subTitle={`Protocolo da solicitação: ${response.id}. Os resultados serão processados imediatamente, e você deve recebê-los no e-mail cadastrado em até 20 minutos. Para resolução de problemas, críticas ou sugestões, envie um e-mail para suporte@soa.app.br`}
+          title={`Anote o protocolo: ${response.id}`}
+          subTitle={
+            "Seu estudo de otimização está a caminho! Os resultados serão processados imediatamente, e você deve recebê-los no e-mail cadastrado em até 20 minutos. Para resolução de problemas, críticas ou sugestões, envie um e-mail para suporte@soa.app.br"
+          }
         />
       ) : errorAlertShow ? (
         <Result
@@ -84,10 +85,7 @@ function FormContainer() {
           subTitle="Não conseguimos completar a solicitação neste momento. Tente novamente em alguns minutos, e caso o problema persista, envie um e-mail para suporte@soa.app.br."
         />
       ) : (
-        <Spin
-          spinning={sendingRequest}
-          tip="Seu estudo de otimização está sendo solicitado. Obrigado por utilizar o SOA!"
-        >
+        <>
           <Carousel pause={"hover"} interval={200000}>
             <Carousel.Item>
               <PlanoDiretorComponent
@@ -113,7 +111,7 @@ function FormContainer() {
           >
             Solicitar estudo de otimização
           </Button>
-        </Spin>
+        </>
       )}
     </>
   );

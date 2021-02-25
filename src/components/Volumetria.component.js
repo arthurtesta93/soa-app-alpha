@@ -37,7 +37,10 @@ function VolumetriaComponent(props) {
               </Form.Label>
               <Form.Control
                 style={{ marginTop: "12px" }}
-                placeholder="Recuo estacionamento (metros)"
+                placeholder="Máximo: 4 (metros)"
+                type="number"
+                min="2"
+                max="4"
                 onChange={(e) =>
                   props.handleJobObjectChange(
                     "recuoLateralEstacionamento",
@@ -50,7 +53,10 @@ function VolumetriaComponent(props) {
 
           <Form.Label>Avanço recuo jardim</Form.Label>
           <Form.Control
-            placeholder="Avanço recuo jardim (metros)"
+            placeholder="Máximo: 9 (metros)"
+            type="number"
+            min="0"
+            max="9"
             onChange={(e) =>
               props.handleJobObjectChange("avancoRecJardim", e.target.value)
             }
@@ -60,14 +66,20 @@ function VolumetriaComponent(props) {
           <Form.Label>Pé direito (corpo)</Form.Label>
           <Form.Control
             style={{ marginBottom: "35px" }}
-            placeholder="Mínimo (metros)"
+            placeholder="Mínimo: 2.1 (metros)"
+            type="number"
+            min="2.1"
+            max="5"
             onChange={(e) =>
               props.handleJobObjectChange("peDireitoMinCorpo", e.target.value)
             }
           />
 
           <Form.Control
-            placeholder="Máximo (metros)"
+            placeholder="Máximo: 5 (metros)"
+            type="number"
+            min="2.1"
+            max="5"
             onChange={(e) =>
               props.handleJobObjectChange("peDireitoMaxCorpo", e.target.value)
             }
@@ -75,7 +87,10 @@ function VolumetriaComponent(props) {
 
           <Form.Label>Largura mínima corpo</Form.Label>
           <Form.Control
-            placeholder="Largura mínima corpo (metros)"
+            placeholder="Min: 4 Max: 10 (metros)"
+            type="number"
+            min="4"
+            max="10"
             onChange={(e) =>
               props.handleJobObjectChange("larguraMinimaCorpo", e.target.value)
             }
@@ -85,14 +100,20 @@ function VolumetriaComponent(props) {
           <Form.Label>Pé direito (base)</Form.Label>
           <Form.Control
             style={{ marginBottom: "35px" }}
-            placeholder="Mínimo (metros)"
+            placeholder="Mínimo: 2.1 (metros)"
+            type="number"
+            min="2.1"
+            max="5"
             onChange={(e) =>
               props.handleJobObjectChange("peDireitoMinBase", e.target.value)
             }
           />
 
           <Form.Control
-            placeholder="Máximo (metros)"
+            placeholder="Máximo: 5 (metros)"
+            type="number"
+            min="2.1"
+            max="5"
             onChange={(e) =>
               props.handleJobObjectChange("pedireitoMaxBase", e.target.value)
             }
@@ -100,14 +121,20 @@ function VolumetriaComponent(props) {
 
           <Form.Label>Área (base)</Form.Label>
           <Form.Control
-            placeholder="Área base (metros)"
+            placeholder="Máximo: 100 (metros)"
+            type="number"
+            min="0"
+            max="100"
             onChange={(e) =>
               props.handleJobObjectChange("areaBase", e.target.value)
             }
           />
           <Form.Label>Área reservada</Form.Label>
           <Form.Control
-            placeholder="Área reservada (metros)"
+            placeholder="Máximo: 999 (metros)"
+            type="number"
+            min="0"
+            max="999"
             onChange={(e) =>
               props.handleJobObjectChange("areaReservada", e.target.value)
             }

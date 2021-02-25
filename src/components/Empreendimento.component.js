@@ -58,7 +58,10 @@ function EmpreendimentoComponent(props) {
         <Col>
           <Form.Label>Tamanho da unidade</Form.Label>
           <Form.Control
-            placeholder="Tamanho da unidade (m²)"
+            placeholder="Máximo: 999 (m²)"
+            type="number"
+            min="0"
+            max="999"
             onChange={(e) =>
               props.handleJobObjectChange("tamanhoUnidade", e.target.value)
             }
@@ -67,7 +70,10 @@ function EmpreendimentoComponent(props) {
         <Col>
           <Form.Label>Circulação mínima </Form.Label>
           <Form.Control
-            placeholder="Ao redor da circulação vertical (m)"
+            placeholder="Min: 2 Max: 5 (m)"
+            type="number"
+            min="2"
+            max="5"
             onChange={(e) =>
               props.handleJobObjectChange("circulacaoMinima", e.target.value)
             }
@@ -77,6 +83,8 @@ function EmpreendimentoComponent(props) {
           <Form.Label>Preço por m²</Form.Label>
           <Form.Control
             placeholder="Preço por m² (R$)"
+            type="number"
+            max="99999"
             onChange={(e) =>
               props.handleJobObjectChange("precoMetroQuadrado", e.target.value)
             }
@@ -85,7 +93,10 @@ function EmpreendimentoComponent(props) {
         <Col>
           <Form.Label>Adição de porcentagem</Form.Label>
           <Form.Control
-            placeholder="Adição de porcentagem por andar"
+            placeholder="Max: 100"
+            type="number"
+            min="0"
+            max="100"
             onChange={(e) =>
               props.handleJobObjectChange("adicaoPorcentagem", e.target.value)
             }
