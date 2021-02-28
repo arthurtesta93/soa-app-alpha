@@ -12,7 +12,7 @@ import * as formValidators from "../shared/formValidators";
 const axios = require("axios").default;
 
 const instance = axios.create({
-  baseUrl: "http://localhost:8080/job-queue/",
+  baseUrl: "http://54.233.182.18:8080/job-queue/",
   timeout: 1000,
   headers: {
     "Content-type": "application/json",
@@ -39,20 +39,19 @@ function FormContainer(props) {
 
   const requestJobProcess = () => {
     props.setSendingRequest(true);
-    if (formValidators.formFieldsMissing(jobObject)) {
-      message.error(
-        "Prencha todos os campos do formulário para que o SOA possa processar o estudo de otimização."
-      );
-      props.setSendingRequest(false);
-    } else {
-      instance
-        .post(
-          "http://localhost:8080/job-queue/unprocessed",
-          JSON.stringify(jobObject)
-        )
-        .then((response) => onRequestFinished(response))
-        .catch((error) => onRequestError(error));
-    }
+    // if (formValidators.formFieldsMissing(jobObject)) {
+    //   message.error(
+    //     "Prencha todos os campos do formulário para que o SOA possa processar o estudo de otimização."
+    //   );
+    //   props.setSendingRequest(false);
+    // } else {
+    instance
+      .post(
+        "http://54.233.182.18:8080/job-queue/unprocessed",
+        JSON.stringify(jobObject)
+      )
+      .then((response) => onRequestFinished(response))
+      .catch((error) => onRequestError(error));
   };
 
   const onRequestFinished = (response) => {
