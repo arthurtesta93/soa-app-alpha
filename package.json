@@ -1,7 +1,7 @@
 {
   "name": "soa-application-frontend",
   "version": "0.1.0",
-  "homepage": "https://soa.app.br",
+  "homepage": "http://soa.app.br",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
