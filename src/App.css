@@ -220,3 +220,20 @@ input[type="range"]::-ms-fill-upper {
 .habitacao-label:hover {
   color: red;
 }
+
+.google-logo {
+  position: absolute;
+  left: 1100px;
+}
+
+.google-logo:hover {
+  background: #e1e1e1;
+  border-top: #d0d0d0;
+  transition: 1s;
+}
+.logout-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: smaller;
+}

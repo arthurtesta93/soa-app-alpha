@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Result, message } from "antd";
+import { Result } from "antd";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 
@@ -7,7 +7,7 @@ import PlanoDiretorComponent from "../components/PlanoDiretor.component";
 import EmpreendimentoComponent from "../components/Empreendimento.component";
 import VolumetriaComponent from "../components/Volumetria.component";
 
-import * as formValidators from "../shared/formValidators";
+//import * as formValidators from "../shared/formValidators";
 
 const axios = require("axios").default;
 
@@ -21,9 +21,6 @@ const instance = axios.create({
   },
 });
 function FormContainer(props) {
-  //create form object and onChange methods here
-  //dispatch from here
-
   const [jobObject, setJobObject] = useState({});
   const [response, setResponse] = useState({});
   const [successAlertShow, setSuccessAlertShow] = useState(false);
@@ -45,6 +42,12 @@ function FormContainer(props) {
     //   );
     //   props.setSendingRequest(false);
     // } else {
+    const updatedJobObject = jobObject;
+
+    updatedJobObject["email"] = props.user.email;
+    updatedJobObject["name"] = props.user.name;
+    console.log(updatedJobObject);
+    setJobObject(updatedJobObject);
     instance
       .post(
         "http://54.233.182.18:8080/job-queue/unprocessed",

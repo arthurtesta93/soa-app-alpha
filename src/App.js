@@ -5,10 +5,25 @@ import "antd/dist/antd.css";
 import logo from "./assets/LOGO_SOA3.png";
 import { Spin } from "antd";
 
+import Login from "./container/Login";
+import Logout from "./container/Logout";
 import FormContainer from "./container/Form.container";
+
 function App() {
   const [sendingRequest, setSendingRequest] = useState(false);
+  const [userAuth, setUserAuth] = useState(false);
+  const [user, setUser] = useState({});
+  const onUserAuth = (userObj) => {
+    setUser({
+      name: userObj.name,
+      email: userObj.email,
+    });
+    setUserAuth(true);
+  };
 
+  const onLogout = () => {
+    setUserAuth(false);
+  };
   return (
     <Spin
       spinning={sendingRequest}
@@ -17,12 +32,16 @@ function App() {
       <div className="App">
         <header className="App-header">
           <img src={logo} alt="logo" width="600" height="150" />
-          <div className="form-container">
-            <FormContainer
-              sendingRequest={sendingRequest}
-              setSendingRequest={setSendingRequest}
-            />
-          </div>
+          <Login onUserAuth={onUserAuth} /> <Logout onLogout={onLogout} />
+          {userAuth ? (
+            <div className="form-container">
+              <FormContainer
+                sendingRequest={sendingRequest}
+                setSendingRequest={setSendingRequest}
+                user={user}
+              />
+            </div>
+          ) : null}
         </header>
       </div>
     </Spin>
