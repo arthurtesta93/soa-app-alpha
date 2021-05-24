@@ -12,7 +12,7 @@ import VolumetriaComponent from "../components/Volumetria.component";
 const axios = require("axios").default;
 
 const instance = axios.create({
-  baseUrl: "http://54.233.182.18:8080/job-queue/",
+  baseUrl: "http://177.71.159.234:8080/job-queue/",
   timeout: 1000,
   headers: {
     "Content-type": "application/json",
@@ -50,7 +50,7 @@ function FormContainer(props) {
     setJobObject(updatedJobObject);
     instance
       .post(
-        "http://54.233.182.18:8080/job-queue/unprocessed",
+        "http://177.71.159.234:8080/job-queue/unprocessed",
         JSON.stringify(jobObject)
       )
       .then((response) => onRequestFinished(response))
