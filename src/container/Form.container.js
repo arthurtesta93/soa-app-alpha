@@ -12,7 +12,7 @@ import VolumetriaComponent from "../components/Volumetria.component";
 const axios = require("axios").default;
 
 const instance = axios.create({
-  baseUrl: "http://177.71.159.234:8080/job-queue/",
+  baseUrl: "http://18.231.148.138:8080/job-queue/",
   timeout: 1000,
   headers: {
     "Content-type": "application/json",
