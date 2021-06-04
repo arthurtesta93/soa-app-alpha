@@ -50,7 +50,7 @@ function FormContainer(props) {
     setJobObject(updatedJobObject);
     instance
       .post(
-        "http://177.71.159.234:8080/job-queue/unprocessed",
+        "http://18.231.148.138:8080/job-queue/unprocessed",
         JSON.stringify(jobObject)
       )
       .then((response) => onRequestFinished(response))

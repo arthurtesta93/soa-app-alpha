@@ -29,20 +29,24 @@ function App() {
       spinning={sendingRequest}
       tip="Seu estudo de otimização está sendo solicitado. Obrigado por utilizar o SOA!"
     >
+      <header className="App-header">
+        <img src={logo} alt="logo" width="600" height="150" />
+      </header>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} alt="logo" width="600" height="150" />
-          <Login onUserAuth={onUserAuth} /> <Logout onLogout={onLogout} />
-          {userAuth ? (
-            <div className="form-container">
-              <FormContainer
-                sendingRequest={sendingRequest}
-                setSendingRequest={setSendingRequest}
-                user={user}
-              />
-            </div>
-          ) : null}
-        </header>
+        {!userAuth ? (
+          <Login onUserAuth={onUserAuth} />
+        ) : (
+          <Logout onLogout={onLogout} />
+        )}
+        {userAuth ? (
+          <div className="form-container">
+            <FormContainer
+              sendingRequest={sendingRequest}
+              setSendingRequest={setSendingRequest}
+              user={user}
+            />
+          </div>
+        ) : null}
       </div>
     </Spin>
   );

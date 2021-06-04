@@ -24,9 +24,12 @@ function Login(props) {
   });
 
   return (
-    <button onClick={signIn} className="login-button">
-      <img src={google_logo} alt="google-logo" className="google-logo" />
-    </button>
+    <img
+      src={google_logo}
+      onClick={signIn}
+      alt="google-logo"
+      className="google-logo"
+    />
   );
 }
 
