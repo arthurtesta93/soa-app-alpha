@@ -1,8 +1,16 @@
-.App {
-  min-height: 100vh;
+body {
   background-image: url(https://images4.alphacoders.com/833/833515.jpg);
+}
+
+.App {
+  width: 100%;
   font-size: calc(10px + 2vmin);
-  overflow-y: hidden;
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -27,14 +35,19 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.ant-menu {
+  border-radius: 15px;
+  font-size: 18px !important;
+  margin-top: 20px !important;
+  background-color: #e7ecf0 !important;
 }
 
 .form-container {
+  top: 300px;
   text-align: center;
-  position: relative;
-  top: 350px;
-  left: 540px;
+  position: absolute;
   background: #e2dcd0;
   height: 500px;
   width: 1200px;

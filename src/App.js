@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "antd/dist/antd.css";
 import logo from "./assets/LOGO_SOA3.png";
-import { Spin } from "antd";
+import { Spin, Menu } from "antd";
 
 import Login from "./container/Login";
 import Logout from "./container/Logout";
@@ -30,6 +30,11 @@ function App() {
       tip="Seu estudo de otimização está sendo solicitado. Obrigado por utilizar o SOA!"
     >
       <header className="App-header">
+        <Menu mode="horizontal">
+          <Menu.Item key="app">Solicitar otimização</Menu.Item>
+          <Menu.Item key="read">Visualizar relatório</Menu.Item>
+          <Menu.Item key="geo">Visualizar geometria</Menu.Item>
+        </Menu>
         <img src={logo} alt="logo" width="600" height="150" />
       </header>
       <div className="App">
